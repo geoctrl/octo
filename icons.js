@@ -1,0 +1,23 @@
+exports.regular = [
+  "angle-right",
+  "angle-left",
+  "angle-down",
+  "angle-up",
+  "chevron-right",
+  "truck-fast",
+  "plus",
+  "xmark",
+  "circle-info",
+  "circle-xmark",
+  "folder-closed",
+  "folder-open",
+];
+exports.solid = ["caret-down"];
+
+exports.light = [];
+
+exports.brands = [];
+
+exports.sharpRegular = ["folder-open", "folder-closed"];
+
+exports.sharpSolid = [];

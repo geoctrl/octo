@@ -1,0 +1,20 @@
+@use 'sass:map';
+@use 'sass:math';
+
+$breakpointSizeMap: (
+  sm: 64,
+  md: 76.8,
+  lg: 102.4,
+  xl: 128,
+  xxl: 153.6,
+);
+
+@function breakpointSize($bp) {
+  @return map.get($breakpointSizeMap, $bp) * 1rem;
+}
+
+@mixin breakpoint($bp) {
+  @media (min-width: #{map.get($breakpointSizeMap, $bp)}rem) {
+    @content;
+  }
+}

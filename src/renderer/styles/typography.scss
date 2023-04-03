@@ -1,0 +1,12 @@
+@use "color" as *;
+
+.text-label {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+
+.text-error {
+  color: $vermillion;
+  font-size: 1.2rem;
+  padding-top: .4rem;
+}

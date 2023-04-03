@@ -1,0 +1,26 @@
+@use "../color" as *;
+@use "../var" as *;
+
+// text align
+.text-center {
+  text-align: center !important;
+}
+.text-right {
+  text-align: right !important;
+}
+.text-left {
+  text-align: left !important;
+}
+
+// Ellipsis
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+code {
+  background-color: rgba($blue-crayola, .3);
+  padding: .2rem .4rem;
+  border-radius: $round-sm;
+}

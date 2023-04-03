@@ -1,0 +1,15 @@
+// keyboard intent
+body:not(.keyboard-intent) {
+  [role='button']:focus,
+  button:focus,
+  a:focus {
+    &::after {
+      display: none;
+    }
+  }
+}
+
+///** hide body scrolling when modal/overlay is open **/
+//body.--modalService-hide-scroll-bar {
+//  overflow: hidden;
+//}

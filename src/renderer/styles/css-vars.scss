@@ -1,0 +1,44 @@
+@use 'color' as *;
+@use './tools/color-tools' as *;
+
+@include generateThemeVariables(
+    (
+      app-background: (
+        light: $grey-100,
+        dark: $raisin-700,
+      ),
+      app-text: (
+        light: $raisin-900,
+        dark: $grey-100,
+      ),
+      app-text-secondary: (
+        light: $grey-700,
+        dark: $raisin-300,
+      ),
+      app-text-hint: (
+        light: $raisin-300,
+        dark: $grey-300,
+      ),
+      app-text-link: $blue-crayola-700,
+      app-text-disabled: (
+        light: $raisin-700,
+        dark: $grey-700,
+      ),
+      app-border: (
+        light: rgba($raisin-900, 0.2),
+        dark: rgba($grey-100, 0.2),
+      ),
+      app-header-bg: (
+        light: $grey-600,
+        dark: $raisin-700,
+      ),
+      app-header-logo-fill: (
+        light: $raisin-900,
+        dark: $grey-100,
+      ),
+      input-bg: (
+        light: rgba($grey-100, .3),
+        dark: rgba($grey-900, .1),
+      ),
+    )
+);
