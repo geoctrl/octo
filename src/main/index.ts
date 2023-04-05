@@ -18,7 +18,7 @@ import os from "os";
 
 search
   .searchFile(
-    "*StorageKeys",
+    "import",
     path.resolve(os.homedir(), "projects/doculand/src/app-state.ts")
   )
   .then((res) => {});

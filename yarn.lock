@@ -3372,10 +3372,9 @@ find-yarn-workspace-root@^2.0.0:
   dependencies:
     micromatch "^4.0.2"
 
-flexsearch@^0.7.31:
-  version "0.7.31"
-  resolved "https://registry.yarnpkg.com/flexsearch/-/flexsearch-0.7.31.tgz#065d4110b95083110b9b6c762a71a77cc52e4702"
-  integrity sha512-XGozTsMPYkm+6b5QL3Z9wQcJjNYxp0CYn3U1gO7dwD6PAqU1SVWZxI9CCg3z+ml3YfqdPnrBehaBrnH2AGKbNA==
+"flexsearch@https://github.com/nextapps-de/flexsearch/tarball/0.7.0":
+  version "0.7.0"
+  resolved "https://github.com/nextapps-de/flexsearch/tarball/0.7.0#85b9dd064f9cb1e7188921d74d2874dfa085e254"
 
 flora-colossus@^1.0.0:
   version "1.0.1"

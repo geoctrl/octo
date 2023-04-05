@@ -3,8 +3,6 @@ import path from "path";
 import picomatch from "picomatch";
 import { Index } from "flexsearch";
 
-console.log(Index);
-
 class Search {
   async run(nextPath: string) {
     return this.getFilesRecursively(nextPath, "");
@@ -56,8 +54,13 @@ class Search {
   }
 
   async searchFile(term: string, filePath: string) {
-    const index = new Index({});
     const file = await readFile(filePath, "utf8");
+    const index = new Index();
+    const test = await index.add(1, "John Doe");
+    const result = await index.searchAsync(term, {
+      limit: 99999,
+    });
+    console.log("result", result);
   }
 }
 
