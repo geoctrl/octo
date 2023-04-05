@@ -7,4 +7,5 @@ import "./utils/keyboard-intent";
 import { Root } from "./root";
 
 const root = createRoot(document.getElementById("app"));
+
 root.render(<Root />);

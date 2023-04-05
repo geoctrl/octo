@@ -16,6 +16,7 @@ import {
   FloatingPortal,
   useFloatingTree,
   useFloatingNodeId,
+  useMergeRefs,
   useFloatingParentNodeId,
   FloatingNode,
   FloatingFocusManager,
@@ -146,10 +147,7 @@ export const MenuComponent = React.forwardRef<
       };
     }, [allowHover]);
 
-    const referenceRef = React.useMemo(
-      () => mergeRefs([refs.setReference, forwardedRef]),
-      [refs.setReference, forwardedRef]
-    );
+    const referenceRef = useMergeRefs([refs.setReference, forwardedRef]);
 
     return (
       <FloatingNode id={nodeId}>

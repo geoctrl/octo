@@ -20,6 +20,6 @@ export function ModalBody(props: Props) {
 const css = k`
   .modal-body {
     padding: 2rem;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 `;

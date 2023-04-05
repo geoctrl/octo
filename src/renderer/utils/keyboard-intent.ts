@@ -12,6 +12,5 @@ function keyboardIntentKeydown(): void {
 
 document.addEventListener("click", keyboardIntentClick);
 document.addEventListener("keydown", () => {
-  console.log("here");
   keyboardIntentKeydown();
 });

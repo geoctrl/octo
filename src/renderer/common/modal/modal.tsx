@@ -1,4 +1,4 @@
-import React, { ReactNode, CSSProperties, useEffect } from "react";
+import React, { ReactNode, CSSProperties } from "react";
 import { useCss, k, a } from "kremling";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";

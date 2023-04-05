@@ -18,6 +18,7 @@ export interface InputProps
   onChange?: (value: string) => void;
   onClear?: () => void;
   value?: string;
+  buttonRight?: ReactNode;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -32,6 +33,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       onClear,
       value,
       required,
+      buttonRight,
       ...inputProps
     } = props;
     const innerRef = useRef<HTMLInputElement>();
@@ -49,7 +51,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         className={a("input", className)
           .m("input--error", error)
           .m("input--icon-left", iconLeft)
-          .m("input--can-clear", onClear)}
+          .m("input--can-clear", onClear)
+          .m("input--button-right", buttonRight)}
       >
         {label && (
           <div className="input__label">
@@ -91,6 +94,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             </div>
           )}
         </div>
+        {buttonRight && (
+          <div className="input__button-right">{buttonRight}</div>
+        )}
         {error && <div className="text-error">{error}</div>}
       </div>
     );
@@ -98,6 +104,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 );
 
 const css = k`
+  @include generateThemeVariables((
+    input-icon-fill: (
+      light: $grey-900,
+      dark: $grey-900,
+    ),
+  ));
+  
   .input {
     position: relative;
 
@@ -136,6 +149,25 @@ const css = k`
     &.input--can-clear input {
       padding-right: 36px;
     }
+    
+    &.input--button-right {
+      display: flex;
+      align-items: center;
+      
+      .input-container {
+        flex-grow: 1;
+
+        @include focus-ring-within-extend {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        };
+      }
+      input {
+        border-right: none;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
   }
 
   .input-container {
@@ -169,12 +201,12 @@ const css = k`
   .input__icon-left {
     position: absolute;
     top: 0;
-    height: 36px;
-    width: 36px;
+    height: $form-size-md;
+    width: $form-size-md;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: $raisin-100;
+    color: var(--input-icon-fill);
   }
 
   .input__close-btn {
@@ -186,5 +218,17 @@ const css = k`
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  
+  .input__button-right {
+    button {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      
+      @include focus-ring-extend {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
   }
 `;

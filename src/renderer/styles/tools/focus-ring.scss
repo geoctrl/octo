@@ -49,3 +49,9 @@
     @content;
   }
 }
+
+@mixin focus-ring-within-extend {
+  &:focus-within::after {
+    @content;
+  }
+}

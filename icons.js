@@ -11,6 +11,8 @@ exports.regular = [
   "circle-xmark",
   "folder-closed",
   "folder-open",
+  "magnifying-glass",
+  "input-text",
 ];
 exports.solid = ["caret-down"];
 

@@ -1,4 +1,4 @@
 export const actions = {
-  updateTheme: "updateTheme",
+  initAppState: "initAppState",
   updateAppState: "updateAppState",
 };
