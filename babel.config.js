@@ -1,5 +1,5 @@
-import fs from "fs";
-import path from "path";
+const fs = require("fs");
+const path = require("path");
 
 module.exports = {
   presets: [
@@ -12,9 +12,9 @@ module.exports = {
       "module:kremling-babel-plugin",
       {
         sassOptions: {
-          includePaths: ["src/renderer/styles"],
+          includePaths: ["src/styles"],
           additionalData: fs.readFileSync(
-            path.resolve(__dirname, "src/renderer/styles/entry.scss"),
+            path.resolve(__dirname, "src/styles/entry.scss"),
             "utf-8"
           ),
         },

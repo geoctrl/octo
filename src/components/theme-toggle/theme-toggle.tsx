@@ -17,7 +17,7 @@ export function ThemeToggle(props: Props) {
       className={className}
       style={style}
       onChange={() => {
-        appState.next({ theme: theme === "light" ? "dark" : "light" });
+        appState.set({ theme: theme === "light" ? "dark" : "light" });
       }}
       checked={theme === "dark"}
     />

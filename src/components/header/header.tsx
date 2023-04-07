@@ -7,11 +7,14 @@ import { Menu, MenuItem } from "../../common/menu";
 import { ThemeToggle } from "../theme-toggle/theme-toggle";
 import { Icon } from "../../common/icon/icon";
 import { Input } from "../../common/input/input";
+import { MenuTitle } from "../../common/menu/menu-title";
+import { appState, useAppState } from "../../app-state";
 
 export function Header() {
   const scope = useCss(css);
   const [search, setSearch] = useState("");
   const [lastSearch, setLastSearch] = useState("");
+  const { theme } = useAppState(["theme"]);
 
   const readyForNewSearch = useMemo(() => {
     return search !== lastSearch;
@@ -19,7 +22,7 @@ export function Header() {
 
   return (
     <div {...scope} className="header">
-      <div className="no-drag">
+      <div>
         <Menu
           renderTrigger={(refProps, { open }) => (
             <Button {...refProps} active={open}>
@@ -27,10 +30,20 @@ export function Header() {
             </Button>
           )}
         >
-          <MenuItem label="Settings" />
+          <MenuTitle>Theme</MenuTitle>
+          <MenuItem
+            label="Light"
+            active={theme === "light"}
+            onClick={() => appState.set({ theme: "light" })}
+          />
+          <MenuItem
+            label="Dark"
+            active={theme === "dark"}
+            onClick={() => appState.set({ theme: "dark" })}
+          />
         </Menu>
       </div>
-      <div className="no-drag header-nav">
+      <div className="header-nav">
         <Menu
           renderTrigger={(refProps, { open }) => (
             <Button intent="secondary-grey" active={open} {...refProps}>
@@ -51,7 +64,7 @@ export function Header() {
           <MenuItem label="All" />
         </Menu>
       </div>
-      <div className="no-drag header-search">
+      <div className="header-search">
         <form>
           <Input
             iconLeft="magnifying-glass-regular"
@@ -65,7 +78,7 @@ export function Header() {
           />
         </form>
       </div>
-      <div className="no-drag">
+      <div>
         <Menu
           renderTrigger={(refProps, { open }) => (
             <Button intent="secondary-grey" {...refProps} active={open}>
@@ -91,19 +104,14 @@ const css = k`
   ));
 
   .header {
-    -webkit-app-region: drag;
     height: 5.7rem;
-    padding-left: 9rem;
+    padding-left: 1.6rem;
     padding-right: 1.6rem;
     display: flex;
     align-items: center;
     flex-direction: row;
     border-bottom: solid .1rem var(--app-border);
     gap: 1.6rem;
-  }
-  
-  .no-drag {
-    -webkit-app-region: none;
   }
   
   .header-logo {

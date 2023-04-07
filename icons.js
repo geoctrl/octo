@@ -14,7 +14,7 @@ exports.regular = [
   "magnifying-glass",
   "input-text",
 ];
-exports.solid = ["caret-down"];
+exports.solid = ["caret-down", "angle-right", "circle-check"];
 
 exports.light = [];
 

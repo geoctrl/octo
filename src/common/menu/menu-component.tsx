@@ -256,6 +256,10 @@ const css = k`
           light: $grey-300,
           dark: $raisin-300,
         ),
+        menu-item-icon-fill: (
+          light: $grey-900,
+          dark: $grey-100,
+        ),
       )
   );
 
@@ -284,7 +288,7 @@ const css = k`
     padding: .6rem .8rem;
 
     .sub-menu-icon {
-      fill: $grey-100;
+      fill: var(--menu-item-icon-fill);
     }
 
     &:focus, &:not([disabled]):active {

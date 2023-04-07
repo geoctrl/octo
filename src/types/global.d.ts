@@ -1,13 +1,8 @@
-declare module "flexsearch" {
-  export const Index: any;
+type Primitive = string | number | boolean;
+
+declare module "*?raw" {
+  const contents: string;
+  export = contents;
 }
 
-declare const api: typeof import("../api").api;
-
 type Theme = "light" | "dark" | "system";
-
-type AppStateType = {
-  term?: string;
-  termRule?: string;
-  theme?: Theme;
-};

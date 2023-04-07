@@ -160,6 +160,7 @@ const css = k`
         @include focus-ring-within-extend {
           border-top-right-radius: 0;
           border-bottom-right-radius: 0;
+          inset: 0 -.1rem 0 0;
         };
       }
       input {

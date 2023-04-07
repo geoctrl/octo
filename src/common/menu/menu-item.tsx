@@ -8,10 +8,11 @@ type MenuItemProps = MenuComponentProps &
   React.ButtonHTMLAttributes<HTMLButtonElement> & {
     label: string | ReactNode;
     iconLeft?: Icons;
+    active?: boolean;
   };
 
 export const MenuItem = React.forwardRef<HTMLButtonElement, MenuItemProps>(
-  ({ label, iconLeft, ...props }, ref) => {
+  ({ label, iconLeft, active, ...props }, ref) => {
     const renderItem = ({ isSubMenu, ...refProps }: any) => (
       <button
         {...props}
@@ -26,12 +27,9 @@ export const MenuItem = React.forwardRef<HTMLButtonElement, MenuItemProps>(
           )}
           {label}
         </span>
+        {active && <Icon name="circle-check-solid" className="sub-menu-icon" />}
         {isSubMenu && (
-          <Icon
-            className="sub-menu-icon"
-            name="chevron-right-regular"
-            style={{ marginLeft: 16 }}
-          />
+          <Icon className="sub-menu-icon" name="angle-right-solid" size={14} />
         )}
       </button>
     );

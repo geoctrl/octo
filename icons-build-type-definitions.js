@@ -8,8 +8,10 @@ const {
 } = require("./icons");
 const path = require("path");
 const fs = require("fs").promises;
+const prettier = require("prettier");
 
-let output = `declare type Icons = `;
+let output = `// auto-generated icon type definitions from /icons-build-type-definitions.js
+declare type Icons = `;
 const iconNames = [];
 
 regular.forEach((icon) => {
@@ -38,4 +40,6 @@ sharpSolid.forEach((icon) => {
 
 output += `${iconNames.join(" | ")};\n`;
 
-fs.writeFile(path.resolve(__dirname, "src/renderer/types/icon.d.ts"), output);
+output = prettier.format(output, { parser: "babel" });
+
+fs.writeFile(path.resolve(__dirname, "src/types/icon.d.ts"), output);
