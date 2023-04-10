@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { FormEventHandler, useEffect, useMemo, useState } from "react";
 import { useCss, k } from "kremling";
 
 import { Button } from "../../common/button/button";
@@ -10,7 +10,12 @@ import { Input } from "../../common/input/input";
 import { MenuTitle } from "../../common/menu/menu-title";
 import { appState, useAppState } from "../../app-state";
 
-export function Header() {
+type SearchProps = {
+  handleSearch: (query: string) => void;
+};
+
+export function Header(props: SearchProps) {
+  const { handleSearch } = props;
   const scope = useCss(css);
   const [search, setSearch] = useState("");
   const [lastSearch, setLastSearch] = useState("");
@@ -20,6 +25,15 @@ export function Header() {
     return search !== lastSearch;
   }, [search, lastSearch]);
 
+  const formSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+    handleSearch(search);
+    setLastSearch(search);
+  };
+
+  // useEffect(() => {
+  //   handleSearch("test");
+  // }, []);
   return (
     <div {...scope} className="header">
       <div>
@@ -65,7 +79,7 @@ export function Header() {
         </Menu>
       </div>
       <div className="header-search">
-        <form>
+        <form onSubmit={formSubmit}>
           <Input
             iconLeft="magnifying-glass-regular"
             value={search}

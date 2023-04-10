@@ -5,3 +5,7 @@
 @use "utility-classes/spacing";
 @use "utility-classes/text";
 @use "utility-classes/color-utility";
+
+// theme
+@use "code-themes/prism-material-light";
+@use "code-themes/prism-material-dark";
