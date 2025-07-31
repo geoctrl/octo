@@ -50,6 +50,7 @@
     "@codemirror/lang-javascript": "^6.1.5",
     "@floating-ui/react": "^0.19.2",
     "@openbayes/highlightjs-line-numbers": "^2.8.2",
+    "@tanstack/react-query": "^4.29.3",
     "@uiw/codemirror-theme-github": "^4.19.12",
     "@uiw/react-codemirror": "^4.19.12",
     "axios": "^1.3.5",
